@@ -11,10 +11,10 @@ fi
 
 # device offline
 for mac in `diff $PREVIOUS $CURRENT | grep '<' | awk '{print $2}'`; do
-    ./send_slack.py "$mac" "offline"
+    ./send_huginn.py "$mac" "offline"
 done
 
 # device online 
 for mac in `diff $PREVIOUS $CURRENT | grep '>' | awk '{print $2}'`; do
-    ./send_slack.py "$mac" "online" 
+    ./send_huginn.py "$mac" "online" 
 done
